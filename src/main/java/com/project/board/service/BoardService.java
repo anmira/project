@@ -26,15 +26,26 @@ public class BoardService {
 	
 	// 2. view
 	public BoardVO view (int no, int inc) throws Exception{
-		System.out.println("BoardService.list().no, inc - " +no + ","+ inc);
+		System.out.println("BoardService.view().no, inc - " +no + ","+ inc);
 		if(inc == 1) mapper.increase(no);
 		return mapper.view(no);
 	}
 	
 	// 3. write
 	public int write(BoardVO vo) throws Exception{
+		System.out.println("BoardService.write().vo" + vo);
 		return mapper.write(vo);
 	}
 	
+	// 4. update
+	public int update(BoardVO vo) throws Exception{
+		System.out.println("BoardService.update().vo" + vo);
+		return mapper.update(vo);
+	}
 	
+	// 4. delete
+	public int delete(int no) throws Exception{
+		System.out.println("BoardService.delete().no" + no);
+		return mapper.delete(no);
+	}
 }
