@@ -61,11 +61,11 @@ public class BoardController {
 	
 	//3-2. write
 	@PostMapping("/write.do")
-	public String write(BoardVO vo) throws Exception{
+	public String write(BoardVO vo, int perPageNum) throws Exception{
 		
 		System.out.println("BoardController.write().vo - " + vo);
 		service.write(vo);
-		return "redirect:list.do";
+		return "redirect:list.do?page=1&perPageNum=" + perPageNum;
 	}
 	
 	//4-1. updateForm

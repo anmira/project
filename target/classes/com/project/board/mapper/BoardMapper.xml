@@ -11,6 +11,7 @@
 			from(	
 				select no, title, writer, writeDate, hit
 				from board
+				<include refid="search" />
 				order by no desc
 			)
 		)	
@@ -20,7 +21,41 @@
 	<!-- 전체 데이터 개수 -->
 	<select id="getTotalRow" resultType="long">
 		select count(*) from board
+		<include refid="search" />
 	</select>
+	
+	<!-- 검색 조건 처리 태그 - 부분 태그 sql (동적쿼리)-->
+	<sql id="search">
+		<if test="word != null and word != ''.toString">
+			where 
+			<if test="key == 't'.toString()">
+				title like '%' || #{word} || '%'
+			</if>
+			<if test="key == 'c'.toString()">
+				content like '%' || #{word} || '%'
+			</if>
+			<if test="key == 'w'.toString()">
+				writer like '%' || #{word} || '%'
+			</if>
+			<if test="key == 'tc'.toString()">
+				title like '%' || #{word} || '%'
+				or content like '%' || #{word} || '%'
+			</if>
+			<if test="key == 'tw'.toString()">
+				title like '%' || #{word} || '%'
+				or writer like '%' || #{word} || '%'
+			</if>
+			<if test="key == 'cw'.toString()">
+				content like '%' || #{word} || '%'
+				or writer like '%' || #{word} || '%'
+			</if>
+			<if test="key == 'tcw'.toString()">
+				title like '%' || #{word} || '%'
+				or content like '%' || #{word} || '%'
+				or writer like '%' || #{word} || '%'
+			</if>
+		</if>
+	</sql>
 	
 	<!-- 보기 -->
 	<select id="view" resultType="com.project.board.vo.BoardVO">

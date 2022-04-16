@@ -24,6 +24,7 @@
 <div class="container">
 <h2>게시판 글쓰기 폼</h2>
 <form action="write.do" method="post">
+<input type="hidden" value="${param.perPageNum }" name="perPageNum">
 <div class="form-group">
 	<label>제목</label>
 	<input name="title" id="title" class="form-control">
