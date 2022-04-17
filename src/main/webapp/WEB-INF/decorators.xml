@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 꾸미기(레이아웃)에 대한 선언 -->
+<!-- 기본 폴더 선언 -->
+<decorators defaultdir="/WEB-INF/views/decorator">
+<!-- mvc나 spring에서 jsp를 \WEB-INF 폴더에 넣는 경우
+<decorators defaultdir="/WEB-INF/views/decorator">
+-->
+<!-- hello에 대한 요청이 들어오면 적용시키는 레이아웃 선언 -->
+ <decorator name="main" page="default_decorator.jsp">
+	 <!-- web.xml의 filter에서 패턴 *.do  -->
+	 <pattern>/main/*</pattern>
+	 <pattern>/board/*</pattern>
+	 <pattern>/notice/*</pattern>
+	 <pattern>/image/*</pattern>
+	 <pattern>/qna/*</pattern>
+	 <pattern>/message/*</pattern>
+	 <pattern>/member/*</pattern>
+	 <pattern>/grade/*</pattern>
+<!-- mvc 나 spring 에서의 url 패턴
+  <pattern>/hello.do</pattern>
+  <pattern>/hello</pattern>
+-->
+ </decorator>
+ 
+<!--  게시판에 대한 요청 레이아웃 선언 -->
+ <decorator name="board" page="board_decorator.jsp">
+ <pattern>/board</pattern>
+ </decorator>
+ 
+<!--  데코레이션에서 제외되는 요청을 선언 : 특정한 요청 uri를 제외시키는 것 보다 다른 URI 위치를 사용하는 것이 좋다.  -->
+ <excludes>
+ <pattern>/main/loginAjax.do</pattern>
+ <pattern>/board/ajax.do</pattern>
+ </excludes>
+
+</decorators>

@@ -14,11 +14,14 @@ import com.project.board.service.BoardService;
 import com.project.board.vo.BoardVO;
 import com.webjjang.util.PageObject;
 
+import lombok.extern.log4j.Log4j;
+
 @Controller
 @RequestMapping("/board")
+@Log4j //log 객체를 자동으로 만들어 줌.
 public class BoardController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
+	// private static final Logger log = LoggerFactory.getLogger(BoardController.class);  
 
 	// 의존성 자동 주입(Dependency inject) -> 자동으로 하게 지정하는 어노테이션 : @Autowired, @Inject
 	@Autowired
@@ -33,6 +36,13 @@ public class BoardController {
 		if(pageObject.getPage() <1) pageObject.setPage(1);
 		
 		System.out.println("BoardController.list().pageObject -" + pageObject);
+		
+		// 로그 정보 출력
+		log.info("log info 출력 - pageObject : " + pageObject);
+		// 로그 경고 출력
+		//log.warn("log warn 출력 - pageObject : " + pageObject);
+		// 로그 에러 출력
+		//log.error("log error 출력 - pageObject : " + pageObject);
 		
 		model.addAttribute("list", service.list(pageObject));
 		return "/board/list";

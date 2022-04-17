@@ -117,6 +117,13 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- sitemesh : 전체 레이아웃 잡기 -->
+		<dependency>
+			<groupId>opensymphony</groupId>
+			<artifactId>sitemesh</artifactId>
+			<version>2.4.2</version>
+		</dependency>
+
 		<!-- ===== DB 관련 =========== -->
 		<!-- Oracle -->
 		<dependency>
