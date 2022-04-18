@@ -13,7 +13,7 @@
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:orcl" />
 		<property name="username" value="system" />
-		<property name="password" value="Anmira0530" />
+		<property name="password" value="0530" />
 	</bean>
 	
 	<!-- HikariCP로 데이터 가져오기(DataSource) 객체 생성 -->
