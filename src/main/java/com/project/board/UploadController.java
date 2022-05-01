@@ -40,8 +40,8 @@ public class UploadController {
 		
 		// 파일 저장. 원래 파일명으로 저장. 파일명이 같으면 덮어쓰기 됨.
 		uploadFile.transferTo(new File(savePath, uploadFile.getOriginalFilename()));
-		
-		// DB에 저장 될 파일 정보
+		 
+		// DB에 저장 될 파일 정보 
 		String fileName = path + "/" + uploadFile.getOriginalFilename();
 		log.info(fileName);
 		
