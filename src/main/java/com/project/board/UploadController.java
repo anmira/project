@@ -52,7 +52,7 @@ public class UploadController {
 	@GetMapping("/uploadForms")
 	// url에 jsp 정보가 다 존재함. 그럴 때 리턴 타입을 String 대신 void 사용 가능.
 	public void uploadForms() throws Exception {
-		log.info("uploadForms()");
+		log.info("uploadForms()"); 
 	}
 	
 				// jsp form action 이름과 같게
