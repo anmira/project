@@ -44,7 +44,7 @@ public class BoardController {
 		// 로그 에러 출력
 		//log.error("log error 출력 - pageObject : " + pageObject);
 		
-		model.addAttribute("list", service.list(pageObject));
+		model.addAttribute("list", service.list(pageObject)); 
 		return "/board/list";
 	}
 	
