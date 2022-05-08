@@ -25,7 +25,7 @@ public class BoardController {
 
 	// 의존성 자동 주입(Dependency inject) -> 자동으로 하게 지정하는 어노테이션 : @Autowired, @Inject
 	@Autowired
-	private BoardService service;
+	private BoardService service; 
 	
 	//1. list
 	// 처리 결과를 request에 담아야 하는데 Spring에서는 request가 model에 존재. 
